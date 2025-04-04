@@ -16,30 +16,32 @@ const orderSchema = new mongoose.Schema(
       },
     ],
     checkoutData: {
-      name: { type: String, required: true },
-      emailAddress: { type: String, required: true },
-      phoneNumber: { type: String, required: true },
-      address: { type: String, required: true },
-      zipCode: { type: String, required: true },
-      city: { type: String, required: true },
-      country: { type: String, required: true },
-      paymentMethod: {
-        type: String,
-        required: true,
-        enum: ["e-money", "cash on delivery"],
-      },
-      eMoneyNumber: {
-        type: String,
-        required: function () {
-          return this.paymentMethod === "e-money";
+      type: {
+        name: { type: String },
+        emailAddress: { type: String },
+        phoneNumber: { type: String },
+        address: { type: String },
+        zipCode: { type: String },
+        city: { type: String },
+        country: { type: String },
+        paymentMethod: {
+          type: String,
+          enum: ["e-money", "cash on delivery"],
+        },
+        eMoneyNumber: {
+          type: String,
+          required: function () {
+            return this.paymentMethod === "e-money";
+          },
+        },
+        eMoneyPin: {
+          type: String,
+          required: function () {
+            return this.paymentMethod === "e-money";
+          },
         },
       },
-      eMoneyPin: {
-        type: String,
-        required: function () {
-          return this.paymentMethod === "e-money";
-        },
-      },
+      required: false, // checkoutData jest opcjonalne
     },
     status: {
       type: String,
