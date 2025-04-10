@@ -26,7 +26,7 @@ const orderSchema = new mongoose.Schema(
         country: { type: String },
         paymentMethod: {
           type: String,
-          enum: ["e-money", "cash on delivery"],
+          enum: ["e-money", "cash-on-delivery"],
         },
         eMoneyNumber: {
           type: String,
@@ -40,6 +40,14 @@ const orderSchema = new mongoose.Schema(
             return this.paymentMethod === "e-money";
           },
         },
+        boughtProducts: [
+          {
+            id: { type: Number, required: true },
+            name: { type: String, required: true },
+            price: { type: Number, required: true },
+            quantity: { type: Number, required: true },
+          },
+        ],
       },
       required: false, // checkoutData jest opcjonalne
     },
