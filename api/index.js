@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const authRoutes = require("../routes/auth");
 const cartRoutes = require("../routes/cart");
+const checkoutRoutes = require("../routes/checkout");
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -23,6 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 // Ścieżki/Trasy dla routera
 app.use("/api/auth", authRoutes);
 app.use("/api/cart", cartRoutes);
+app.use("/api/checkout", checkoutRoutes);
 
 //Połączenie z MongoDB
 
