@@ -12,7 +12,10 @@ const port = process.env.PORT || 5000;
 
 app.use(
   cors({
-    origin: ["http://localhost:3000"], //Domeny frontendowe, Frontend lokalny
+    origin: [
+      "http://localhost:3000",
+      "https://audiophile-e-commerce-website-phi.vercel.app/", //Frontend w środowisku produkcyjnym
+    ], //Domeny frontendowe, Frontend lokalny
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], //Dozwolone metody HTTP
     allowedHeaders: ["Content-Type", "Authorization"], //Dozowlone nagłówkie
   })
