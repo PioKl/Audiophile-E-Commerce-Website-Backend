@@ -14,11 +14,11 @@ app.use(
   cors({
     origin: [
       "http://localhost:3000", //Frontend lokalny
-      "https://audiophile-e-commerce-website-phi.vercel.app", //Frontend w środowisku produkcyjnym
+      "https://audiophile-e-commerce-website-mu.vercel.app", //Frontend w środowisku produkcyjnym
     ], //Domeny frontendowe
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], //Dozwolone metody HTTP
     allowedHeaders: ["Content-Type", "Authorization"], //Dozowlone nagłówkie
-  })
+  }),
 );
 
 app.use(express.json());
